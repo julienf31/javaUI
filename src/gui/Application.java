@@ -2,6 +2,7 @@ package gui;
 
 import gui.view.Dashboard;
 import gui.view.ListEmployee;
+import gui.view.ViewManager;
 
 import javax.swing.*;
 
@@ -15,12 +16,12 @@ public class Application {
     }
 
     public static void window() {
-        JFrame frame = new JFrame("App");
+        ViewManager frame = new ViewManager("App");
 
         Dashboard dash = new Dashboard(frame);
+
         ListEmployee liste = new ListEmployee(frame);
-        
-        frame.setContentPane(dash.dashboard);
+
 
     }
 

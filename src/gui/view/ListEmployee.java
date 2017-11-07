@@ -2,20 +2,21 @@ package gui.view;
 
 import javax.swing.*;
 
-public class ListEmployee {
-    JPanel list = new JPanel();
-    JFrame frame;
+public class ListEmployee extends JPanel{
+    ViewManager frame;
 
-    JButton goBack = new JButton("");
+    JButton goBack = new JButton("Starfoullah");
 
-    public ListEmployee(JFrame frame) {
+    public ListEmployee(ViewManager frame) {
+        super();
         this.frame = frame;
-        list.add(goBack);
+        this.frame.addView(this);
+        this.add(goBack);
         this.frame.pack();
         this.frame.setVisible(true);
     }
 
     public void displayListEmployee(){
-        this.frame.setContentPane(list);
+        this.frame.setContentPane(this);
     }
 }
