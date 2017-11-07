@@ -1,4 +1,4 @@
-package better.domain;
+package gui.domain;
 
 public class TechnARisque extends Technicien implements ARisque {
 

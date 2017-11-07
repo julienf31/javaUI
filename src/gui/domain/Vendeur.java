@@ -1,4 +1,4 @@
-package better.domain;
+package gui.domain;
 
 public class Vendeur extends Seller {
 

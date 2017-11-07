@@ -1,7 +1,7 @@
-package better;
+package gui;
 
-import better.domain.*;
-import better.service.Personnel;
+import gui.domain.*;
+import gui.service.Personnel;
 
 public class Salaires {
     public static void main(String[] args) {

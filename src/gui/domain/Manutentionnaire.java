@@ -1,4 +1,4 @@
-package better.domain;
+package gui.domain;
 
 public class Manutentionnaire extends Employee {
 
