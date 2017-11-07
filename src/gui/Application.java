@@ -1,5 +1,6 @@
 package gui;
 
+import gui.view.AddEmployee;
 import gui.view.Dashboard;
 import gui.view.ListEmployee;
 import gui.view.ViewManager;
@@ -21,6 +22,8 @@ public class Application {
         Dashboard dash = new Dashboard(frame);
 
         ListEmployee liste = new ListEmployee(frame);
+
+        AddEmployee add = new AddEmployee(frame);
 
 
     }

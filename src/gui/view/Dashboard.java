@@ -19,14 +19,22 @@ public class Dashboard extends JPanel{
         this.add(goToList);
 
         goToList.addActionListener(this::doStuff);
+        goToAdd.addActionListener(this::goToAdd);
         frame.setContentPane(frame.Views.get(0));
         frame.pack();
         frame.setVisible(true);
     }
 
+    private void goToAdd(ActionEvent actionEvent) {
+        frame.setContentPane(frame.Views.get(2));
+        frame.revalidate();
+        frame.pack();
+    }
+
     private void doStuff(ActionEvent actionEvent) {
         frame.setContentPane(frame.Views.get(1));
         frame.revalidate();
+        frame.pack();
     }
 
 
