@@ -19,7 +19,6 @@ public class Application {
         ViewManager frame = new ViewManager("App");
 
         Dashboard dash = new Dashboard(frame);
-
         ListEmployee liste = new ListEmployee(frame);
 
 

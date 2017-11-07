@@ -27,6 +27,7 @@ public class Dashboard extends JPanel{
     private void doStuff(ActionEvent actionEvent) {
         frame.setContentPane(frame.Views.get(1));
         frame.revalidate();
+        frame.pack();
     }
 
 
