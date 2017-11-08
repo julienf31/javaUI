@@ -14,6 +14,7 @@ public class ListEmployee extends JPanel{
         this.add(goBack);
         this.frame.pack();
         this.frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 
     public void displayListEmployee(){

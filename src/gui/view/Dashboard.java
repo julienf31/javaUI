@@ -23,6 +23,8 @@ public class Dashboard extends JPanel{
         frame.setContentPane(frame.Views.get(0));
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+
     }
 
     private void goToAdd(ActionEvent actionEvent) {

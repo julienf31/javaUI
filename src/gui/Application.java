@@ -1,5 +1,6 @@
 package gui;
 
+import gui.models.EmployeeModel;
 import gui.view.AddEmployee;
 import gui.view.Dashboard;
 import gui.view.ListEmployee;
@@ -23,7 +24,7 @@ public class Application {
 
         ListEmployee liste = new ListEmployee(frame);
 
-        AddEmployee add = new AddEmployee(frame);
+        AddEmployeeController add = new AddEmployeeController(new AddEmployee(frame), new EmployeeModel());
 
 
     }
