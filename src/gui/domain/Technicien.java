@@ -19,4 +19,9 @@ public class Technicien extends Employee {
     public String getPosition() {
         return "Le technicien";
     }
+
+    @Override
+    public double getUnit() {
+        return this.units;
+    }
 }

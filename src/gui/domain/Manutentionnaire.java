@@ -19,4 +19,9 @@ public class Manutentionnaire extends Employee {
     public String getPosition() {
         return "Le manut.";
     }
+
+    @Override
+    public double getUnit() {
+        return this.hours;
+    }
 }

@@ -1,11 +1,15 @@
 package gui.view;
 
+import gui.components.EmployeeTab;
+import gui.service.Personnel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class ListEmployee extends JPanel{
     ViewManager frame;
+
 
     JButton goBack = new JButton("Retour");
     JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
@@ -15,14 +19,20 @@ public class ListEmployee extends JPanel{
 
 
 
-    public ListEmployee(ViewManager frame) {
+    public ListEmployee(ViewManager frame, Personnel p) {
         super();
         //BorderLayout layout = new BorderLayout();
         //this.setLayout(layout);
         this.frame = frame;
         this.frame.addView(this);
-        scrollPane.setPreferredSize(new Dimension(200, 200));
-        this.add(scrollPane);
+        //this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        
+        //scrollPane.setPreferredSize(new Dimension(200, 200));
+        //this.add(scrollPane);
+
+        JTable PersonnelTab = new JTable(new EmployeeTab(p));
+        this.add(new JScrollPane(PersonnelTab));
+
         this.add(goBack);
         goBack.addActionListener(this::goBack);
 
@@ -44,5 +54,9 @@ public class ListEmployee extends JPanel{
 
     public void displayListEmployee(){
         this.frame.setContentPane(this);
+    }
+
+    public void updatePersonnel(){
+
     }
 }
