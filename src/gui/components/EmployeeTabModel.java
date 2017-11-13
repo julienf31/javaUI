@@ -5,15 +5,16 @@ import gui.service.Personnel;
 
 import javax.swing.table.AbstractTableModel;
 
-public class EmployeeTab extends AbstractTableModel{
+public class EmployeeTabModel extends AbstractTableModel{
 
     private final Personnel personnel;
-    private final String[] entetes = {"Nom", "Prénom", "Age", "Date d'entrée", "Unité de calcul"};
+    private final String[] entetes = {"Nom", "Prénom", "Age", "Date d'entrée", "Unité de calcul", "Salaire"};
 
-    public EmployeeTab(Personnel p) {
+    public EmployeeTabModel(Personnel p) {
 
         super();
         this.personnel = p;
+
     }
 
     @Override
@@ -40,9 +41,11 @@ public class EmployeeTab extends AbstractTableModel{
             case 2:
                 return personnel.getEmployee(rowIndex).getAge();
             case 3:
-                return personnel.getEmployee(rowIndex).getAge();
+                return personnel.getEmployee(rowIndex).getEntryYear();
             case 4:
                 return personnel.getEmployee(rowIndex).getUnit();
+            case 5:
+                return personnel.getEmployee(rowIndex).getTruncSalaire();
             default:
                 return null;
         }

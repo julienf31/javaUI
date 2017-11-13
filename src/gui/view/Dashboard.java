@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Dashboard extends JPanel{
+public class Dashboard extends View{
 
     ViewManager frame;
 
@@ -19,15 +19,21 @@ public class Dashboard extends JPanel{
         this.add(goToList);
 
         goToList.addActionListener(this::doStuff);
-        frame.setContentPane(frame.Views.get(0));
+        this.display();
         frame.pack();
         frame.setVisible(true);
     }
 
     private void doStuff(ActionEvent actionEvent) {
-        frame.setContentPane(frame.Views.get(1));
+        frame.Views.get(1).display();
+    }
+
+    public void display(){
+        frame.setTitle("Gestionnaire d'employés");
+        this.frame.setContentPane(this);
         frame.revalidate();
         frame.pack();
+
     }
 
 
