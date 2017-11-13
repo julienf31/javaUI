@@ -1,6 +1,7 @@
 package gui.models;
 
 import gui.domain.Employee;
+import gui.service.Personnel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,30 +9,30 @@ import java.util.Observer;
 
 public class EmployeeModel {
 
-    private List<Employee> employees;
+    private Personnel personnel = new Personnel();
     private static final String PRINT_PATTERN = "%s gagne %.2f euros";
 
     public EmployeeModel() {
-        this.employees = new ArrayList<>();
+        //nothing
     }
 
     public void ajouterEmploye(Employee employee) {
-        this.employees.add(employee);
+        this.personnel.employees.add(employee);
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
+    public Personnel getPersonnel() {
+        return this.personnel;
     }
 
     public void afficherSalaires() {
-        employees.forEach(employee -> System.out.println(String.format(PRINT_PATTERN, employee.getName(), employee.calculerSalaire())));
+        personnel.employees.forEach(employee -> System.out.println(String.format(PRINT_PATTERN, employee.getName(), employee.calculerSalaire())));
     }
 
     public double salaireMoyen() {
         double total = 0;
-        for (Employee employee: employees) {
+        for (Employee employee: this.personnel.employees) {
             total += employee.calculerSalaire();
         }
-        return total / employees.size();
+        return total / this.personnel.employees.size();
     }
 }

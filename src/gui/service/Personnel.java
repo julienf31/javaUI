@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Personnel {
 
-    private List<Employee> employees;
+    public List<Employee> employees;
     private static final String PRINT_PATTERN = "%s gagne %.2f euros";
     private List<JPanel> Views = new ArrayList<>();
 

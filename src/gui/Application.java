@@ -1,8 +1,9 @@
 package gui;
 
-import gui.view.Dashboard;
-import gui.view.ListEmployee;
-import gui.view.ViewManager;
+import gui.domain.*;
+import gui.service.Personnel;
+import gui.view.*;
+import gui.models.EmployeeModel;
 
 import javax.swing.*;
 
@@ -17,6 +18,7 @@ public class Application {
 
     public static void window() {
 
+        EmployeeModel employeeModel = new EmployeeModel();
         Personnel p = new Personnel();
 
         p.ajouterEmploye(new Vendeur("Pierre", "Business", 45, "1995", 30000));
@@ -29,9 +31,10 @@ public class Application {
         ViewManager frame = new ViewManager("App");
 
         Dashboard dash = new Dashboard(frame);
-        ListEmployee liste = new ListEmployee(frame, p);
 
-        AddEmployeeController add = new AddEmployeeController(new AddEmployee(frame), new EmployeeModel());
+        ListEmployee liste = new ListEmployee(frame, employeeModel.getPersonnel());
+
+        AddEmployeeController add = new AddEmployeeController(new AddEmployee(frame), employeeModel);
 
 
     }

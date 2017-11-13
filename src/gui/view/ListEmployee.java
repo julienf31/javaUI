@@ -4,17 +4,14 @@ import gui.components.EmployeeTab;
 import gui.service.Personnel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class ListEmployee extends JPanel{
-    ViewManager frame;
+    private ViewManager frame;
 
-    JButton goBack = new JButton("Starfoullah");
-
-    JButton goBack = new JButton("Retour");
-    JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
-    JScrollPane scrollPane = new JScrollPane(employeeTab, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+    private JButton goBack = new JButton("Retour");
+    //JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
+    //JScrollPane scrollPane = new JScrollPane(employeeTab, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 
 
