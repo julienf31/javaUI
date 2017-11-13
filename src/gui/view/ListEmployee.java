@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 public class ListEmployee extends JPanel{
     ViewManager frame;
 
+    JButton goBack = new JButton("Starfoullah");
 
     JButton goBack = new JButton("Retour");
     JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
@@ -26,7 +27,7 @@ public class ListEmployee extends JPanel{
         this.frame = frame;
         this.frame.addView(this);
         //this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-        
+
         //scrollPane.setPreferredSize(new Dimension(200, 200));
         //this.add(scrollPane);
 
@@ -40,6 +41,7 @@ public class ListEmployee extends JPanel{
 
 
         this.frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         this.frame.pack();
 
 

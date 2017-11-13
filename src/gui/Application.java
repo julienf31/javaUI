@@ -1,7 +1,5 @@
 package gui;
 
-import gui.domain.*;
-import gui.service.Personnel;
 import gui.view.Dashboard;
 import gui.view.ListEmployee;
 import gui.view.ViewManager;
@@ -32,6 +30,8 @@ public class Application {
 
         Dashboard dash = new Dashboard(frame);
         ListEmployee liste = new ListEmployee(frame, p);
+
+        AddEmployeeController add = new AddEmployeeController(new AddEmployee(frame), new EmployeeModel());
 
 
     }
