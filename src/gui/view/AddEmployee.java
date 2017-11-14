@@ -1,13 +1,12 @@
 package gui.view;
 
-import gui.AddEmployeeController;
+import gui.controller.AddEmployeeController;
 import gui.components.AddEmployeeSubmitButton;
 import gui.components.ReturnButton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.lang.*;
 
 public class AddEmployee extends View {

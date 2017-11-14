@@ -1,13 +1,8 @@
 package gui;
 
-import gui.domain.*;
-import gui.service.Personnel;
+import gui.controller.AddEmployeeController;
 import gui.view.*;
 import gui.models.EmployeeModel;
-
-import javax.swing.*;
-
-import java.util.List;
 
 import static javax.swing.SwingUtilities.invokeLater;
 
