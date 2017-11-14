@@ -117,7 +117,8 @@ public class AddEmployee extends View {
 
     private void sendData(ActionEvent actionEvent) {
         this.controller.addEmployee(getName(), getSurname(), getAge(), getEntryDate(),getJob(), getCalculBase());
-        this.frame.Views.get(0).display();
+        this.emptyTextField(); // on vide les champs de texte
+        this.frame.Views.get(1).display(); // go to list view
         this.frame.revalidate();
         this.frame.pack();
         this.frame.setVisible(true);
@@ -129,7 +130,6 @@ public class AddEmployee extends View {
         this.frame.revalidate();
         this.frame.pack();
         this.frame.setVisible(true);
-        this.frame.setLocationRelativeTo(null);
     }
 
     //récupération de tout les champs
@@ -167,6 +167,7 @@ public class AddEmployee extends View {
         this.frame.setContentPane(this);
         frame.revalidate();
         frame.pack();
+        this.frame.setLocationRelativeTo(null);
     }
 
     public void displayHelpLabel(ActionEvent e) {
@@ -190,5 +191,15 @@ public class AddEmployee extends View {
                 setHelpLabel("Pour le Manutentionnaire à Risque, il faut renseigner le nombre d'heure travailées dans le mois");
                 break;
         }
+        this.frame.pack();
+    }
+
+    public void emptyTextField(){
+        this.textSurname.setText("");
+        this.textName.setText("");
+        this.textAge.setText("");
+        this.textCalcul.setText("");
+        this.textEntryDate.setText("");
+        this.listJob.setSelectedIndex(0);
     }
 }

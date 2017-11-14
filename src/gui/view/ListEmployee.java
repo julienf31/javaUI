@@ -2,21 +2,17 @@ package gui.view;
 
 import gui.components.EmployeeJTable;
 import gui.components.EmployeeTabModel;
-import gui.domain.ManutARisque;
 import gui.service.Personnel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.function.BiPredicate;
 
 public class ListEmployee extends View{
     ViewManager frame;
 
     Personnel personnel;
     JButton goBack = new JButton("Retour");
-//    JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
-    //JScrollPane scrollPane = new JScrollPane(employeeTab, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
     JLabel salaryLabel;
 
@@ -43,12 +39,8 @@ public class ListEmployee extends View{
 
         updateSalary();
 
-
-
         this.frame.setVisible(true);
         this.frame.pack();
-
-
 
     }
 
@@ -62,8 +54,10 @@ public class ListEmployee extends View{
         frame.setTitle("List des employés");
         this.frame.setContentPane(this);
         frame.revalidate();
-        frame.setSize(700, 900);
+        //frame.setSize(500, 700);
+        frame.pack();
         updateSalary();
+        this.frame.setLocationRelativeTo(null);
     }
 
     public void updateSalary(){

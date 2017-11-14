@@ -44,7 +44,7 @@ public class Dashboard extends View{
         this.frame.setContentPane(this);
         frame.revalidate();
         frame.pack();
-
+        this.frame.setLocationRelativeTo(null);
     }
 
 
