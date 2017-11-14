@@ -1,12 +1,8 @@
 package gui;
 
-import gui.view.Dashboard;
-import gui.view.ListEmployee;
-import gui.view.ViewManager;
-
-import javax.swing.*;
-
-import java.util.List;
+import gui.controller.AddEmployeeController;
+import gui.service.Personnel;
+import gui.view.*;
 
 import static javax.swing.SwingUtilities.invokeLater;
 
@@ -16,12 +12,24 @@ public class Application {
     }
 
     public static void window() {
+
+        //Création du Modèle de données
+        Personnel personnel= new Personnel();
+
+        //Création de la fenetre
         ViewManager frame = new ViewManager("App");
 
+        //Création de la vue principale
         Dashboard dash = new Dashboard(frame);
 
-        ListEmployee liste = new ListEmployee(frame);
+        //Création de la vue liste d'employées
+        ListEmployee liste = new ListEmployee(frame, personnel);
 
+        //Création du controleur lié à la vue d'ajout
+        AddEmployeeController addControler = new AddEmployeeController(personnel);
+
+        //Création de la vue d'ajout
+        AddEmployee add1 = new AddEmployee(frame, addControler);
 
     }
 

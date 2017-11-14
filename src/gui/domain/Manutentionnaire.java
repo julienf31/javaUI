@@ -3,9 +3,9 @@ package gui.domain;
 public class Manutentionnaire extends Employee {
 
     public static final double PRICE_PER_HOUR = 65;
-    private final int hours;
+    private final double hours;
 
-    public Manutentionnaire(String firstname, String lastname, int age, String entryYear, int hours) {
+    public Manutentionnaire(String firstname, String lastname, int age, String entryYear, double hours) {
         super(firstname, lastname, age, entryYear);
         this.hours = hours;
     }
@@ -18,5 +18,10 @@ public class Manutentionnaire extends Employee {
     @Override
     public String getPosition() {
         return "Le manut.";
+    }
+
+    @Override
+    public double getUnit() {
+        return this.hours;
     }
 }

@@ -7,6 +7,7 @@ public abstract class Employee {
     private String lastname;
     private int age;
     private String entryYear;
+    private double Unit;
 
 
     public Employee(String firstname, String lastname, int age, String entryYear) {
@@ -21,5 +22,27 @@ public abstract class Employee {
 
     public String getName() {
         return String.format(NAME_PATTERN, getPosition(), firstname, lastname);
+    }
+
+    public String getLastname(){
+        return this.lastname;
+    }
+
+    public String getFirstname(){
+        return this.firstname;
+    }
+
+    public int getAge(){
+        return this.age;
+    }
+
+    public String getEntryYear(){
+        return this.entryYear;
+    }
+
+    public abstract double getUnit();
+
+    public String getTruncSalaire(){
+        return String.format("%.2f", this.calculerSalaire());
     }
 }

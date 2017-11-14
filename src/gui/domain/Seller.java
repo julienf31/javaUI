@@ -16,4 +16,9 @@ public abstract class Seller extends Employee {
     }
 
     protected abstract double getBonus();
+
+    @Override
+    public double getUnit() {
+        return this.turnover;
+    }
 }
