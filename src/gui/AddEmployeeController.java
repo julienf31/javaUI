@@ -11,12 +11,12 @@ public class AddEmployeeController {
     private AddEmployee view;
     private EmployeeModel model;
 
-    public AddEmployeeController(AddEmployee view, EmployeeModel model) {
-        this.view = view;
-        this.model = model;
-        this.view.addSubmitListener(new AddEmployeeListener());
-        this.view.addReturnListener(new AddReturnListener());
-        this.view.addSelectJobListener(new SelectJobListener());
+    public AddEmployeeController(EmployeeModel employeeModel) {
+        this.model = employeeModel;
+        System.out.println(model.toString());
+        //this.view.addSubmitListener(new AddEmployeeListener());
+        //this.view.addReturnListener(new AddReturnListener());
+        //this.view.addSelectJobListener(new SelectJobListener());
     }
 
     private class AddReturnListener implements ActionListener{
@@ -30,46 +30,38 @@ public class AddEmployeeController {
         }
     }
 
-    private class AddEmployeeListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String name, surname, entryDate,job;
-            int age, calculBase = 0;
+    public void addEmployee(String name, String surname, String age, String entryDate, String job, String calculBase) {
+
             System.out.println("CLICK");
             try{
-                //Récupération du formulaire
-                name = view.getName();
-                surname = view.getSurname();
-                job = view.getJob();
-                age = Integer.parseInt(view.getAge());
-                entryDate = view.getEntryDate();
-                calculBase = Integer.parseInt(view.getCalculBase());
+                int ageInt = Integer.parseInt(age);
+                double calculBaseDouble = Double.parseDouble(age);
 
                 //création de l'employé correspondant
                 switch(job){
                     case "Vendeur":
                         System.out.println("CREATION D'UN VENDEUR");
-                        model.ajouterEmploye(new Vendeur(name,surname,age,entryDate,calculBase));
+                        model.ajouterEmploye(new Vendeur(name,surname,ageInt,entryDate,calculBaseDouble));
                         break;
                     case "Représentant":
                         System.out.println("CREATION D'UN REPRESENTANT");
-                        model.ajouterEmploye(new Representant(name,surname,age,entryDate,calculBase));
+                        model.ajouterEmploye(new Representant(name,surname,ageInt,entryDate,calculBaseDouble));
                         break;
                     case "Technicien":
                         System.out.println("CREATION D'UN TECHNICIEN");
-                        model.ajouterEmploye(new Technicien(name,surname,age,entryDate,calculBase));
+                        model.ajouterEmploye(new Technicien(name,surname,ageInt,entryDate,calculBaseDouble));
                         break;
                     case "Technicien à Risques":
                         System.out.println("CREATION D'UN TECHNICIEN A RISQUES");
-                        model.ajouterEmploye(new TechnARisque(name,surname,age,entryDate,calculBase));
+                        model.ajouterEmploye(new TechnARisque(name,surname,ageInt,entryDate,calculBaseDouble));
                         break;
                     case "Manutentionnaire":
                         System.out.println("CREATION D'UN MANUTENTIONNAIRE");
-                        model.ajouterEmploye(new Manutentionnaire(name,surname,age,entryDate,calculBase));
+                        model.ajouterEmploye(new Manutentionnaire(name,surname,ageInt,entryDate,calculBaseDouble));
                         break;
                     case "Manutentionnaire à Risques":
                         System.out.println("CREATION D'UN MANUTENTIONNAIRE A RISQUE");
-                        model.ajouterEmploye(new ManutARisque(name,surname,age,entryDate,calculBase));
+                        model.ajouterEmploye(new ManutARisque(name,surname,ageInt,entryDate,calculBaseDouble));
                 }
             }catch(NumberFormatException ex){
                 System.out.println("Erreur de conversion :" + ex.getMessage());
@@ -81,7 +73,7 @@ public class AddEmployeeController {
             view.frame.pack();
             view.frame.setVisible(true);
             view.frame.setLocationRelativeTo(null);
-        }
+
     }
 
     private class SelectJobListener implements ActionListener{

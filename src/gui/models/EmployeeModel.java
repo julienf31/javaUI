@@ -9,11 +9,11 @@ import java.util.Observer;
 
 public class EmployeeModel {
 
-    private Personnel personnel = new Personnel();
+    private Personnel personnel;
     private static final String PRINT_PATTERN = "%s gagne %.2f euros";
 
     public EmployeeModel() {
-        //nothing
+        this.personnel = new Personnel();
     }
 
     public void ajouterEmploye(Employee employee) {

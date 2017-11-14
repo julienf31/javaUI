@@ -15,15 +15,10 @@ public class ListEmployee extends View{
 
     Personnel personnel;
     JButton goBack = new JButton("Retour");
-    JButton test = new JButton("Ajouter");
-    JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
+//    JTable employeeTab = new JTable(new Object[][]{{"Test", "Test", "Test", "Test", "Test", "Test"}, {"Test", "Test", "Test", "Test", "Test", "Test"}}, new String[]{"Nom", "Prénom", "Poste", "Age", "Date d'entrée", "Salaire"});
     //JScrollPane scrollPane = new JScrollPane(employeeTab, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
     JLabel salaryLabel;
-
-
-
-
 
     public ListEmployee(ViewManager frame, Personnel p) {
         super();
@@ -52,14 +47,7 @@ public class ListEmployee extends View{
         updateSalary();
         this.add(salaryLabel, BorderLayout.CENTER);
 
-        //test ajout dynamique
-        buttons.add(test);
-        test.addActionListener(this::ajouter);
-
         this.add(buttons, BorderLayout.SOUTH);
-
-
-
 
         this.frame.setVisible(true);
         this.frame.pack();
@@ -69,16 +57,9 @@ public class ListEmployee extends View{
     }
 
     private void goBack(ActionEvent actionEvent) {
-        frame.setContentPane(frame.Views.get(0));
+        frame.Views.get(0).display();
         frame.revalidate();
         frame.pack();
-    }
-
-
-    private void ajouter(ActionEvent actionEvent){
-
-        personnel.ajouterEmploye(new ManutARisque("Al", "Abordage", 30, "2001", 45));
-
     }
 
     public void display(){

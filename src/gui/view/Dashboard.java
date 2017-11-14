@@ -1,13 +1,14 @@
 package gui.view;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class Dashboard extends JPanel{
+public class Dashboard extends View{
 
     ViewManager frame;
 
+    JLabel title = new JLabel("Gestion des employés");
     JButton goToList = new JButton("Liste des employés");
     JButton goToAdd = new JButton("Ajouyer un employé");
 
@@ -21,7 +22,8 @@ public class Dashboard extends JPanel{
         this.add(goToAdd);
         this.add(goToList);
 
-        goToList.addActionListener(this::doStuff);
+        goToList.addActionListener(this::goToList);
+        goToAdd.addActionListener(this::goToAdd);
         this.display();
         frame.pack();
         frame.setVisible(true);
@@ -29,7 +31,11 @@ public class Dashboard extends JPanel{
 
     }
 
-    private void doStuff(ActionEvent actionEvent) {
+    private void goToAdd(ActionEvent actionEvent) {
+        frame.Views.get(2).display();
+    }
+
+    private void goToList(ActionEvent actionEvent) {
         frame.Views.get(1).display();
     }
 

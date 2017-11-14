@@ -1,5 +1,6 @@
 package gui.view;
 
+import gui.AddEmployeeController;
 import gui.components.AddEmployeeSubmitButton;
 import gui.components.ReturnButton;
 
@@ -9,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.*;
 
-public class AddEmployee extends JPanel {
+public class AddEmployee extends View {
     public ViewManager frame;
     String [] jobs = {
             "Vendeur",
@@ -44,8 +45,11 @@ public class AddEmployee extends JPanel {
     JButton goBackButton = new ReturnButton();
     JButton sendButton = new AddEmployeeSubmitButton();
 
-    public AddEmployee(ViewManager frame) {
+    protected AddEmployeeController controller;
+
+    public AddEmployee(ViewManager frame, AddEmployeeController controller) {
         super();
+        this.controller = controller;
         this.frame = frame;
         initView();
         this.frame.pack();
@@ -58,6 +62,8 @@ public class AddEmployee extends JPanel {
 
         pageTitle.setFont(new Font("Helvetica", Font.BOLD, 22));
         labelHelp.setFont(new Font("Helvetica", Font.ITALIC,8));
+
+        sendButton.addActionListener(this::sendData);
 
         Box l1 = Box.createHorizontalBox();
         l1.add(pageTitle,BorderLayout.PAGE_START);
@@ -107,6 +113,10 @@ public class AddEmployee extends JPanel {
         this.add(box);
     }
 
+    private void sendData(ActionEvent actionEvent) {
+        this.controller.addEmployee(getName(), getSurname(), getAge(), getEntryDate(),getJob(), getCalculBase());
+    }
+
 
     //récupération de tout les champs
 
@@ -146,8 +156,10 @@ public class AddEmployee extends JPanel {
         goBackButton.addActionListener(clickOnReturnButton);
     }
 
-    public void addSelectJobListener(ActionListener selectJob){
-        listJob.addActionListener(selectJob);
+    public void display(){
+        frame.setTitle("Ajouter un employé");
+        this.frame.setContentPane(this);
+        frame.revalidate();
+        frame.pack();
     }
-
 }
