@@ -8,7 +8,6 @@ public class AddEmployeeController {
 
     public AddEmployeeController(Personnel model) {
         this.model = model;
-        System.out.println(model.toString());
     }
 
     public void addEmployee(String name, String surname, String age, String entryDate, String job, String calculBase) {
