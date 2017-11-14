@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.lang.*;
 
 public class AddEmployee extends View {
+
+    protected AddEmployeeController controller;
+
     public ViewManager frame;
     String [] jobs = {
             "Vendeur",
@@ -45,8 +48,6 @@ public class AddEmployee extends View {
     JButton goBackButton = new ReturnButton();
     JButton sendButton = new AddEmployeeSubmitButton();
 
-    protected AddEmployeeController controller;
-
     public AddEmployee(ViewManager frame, AddEmployeeController controller) {
         super();
         this.controller = controller;
@@ -64,6 +65,8 @@ public class AddEmployee extends View {
         labelHelp.setFont(new Font("Helvetica", Font.ITALIC,8));
 
         sendButton.addActionListener(this::sendData);
+        goBackButton.addActionListener(this::goBack);
+        listJob.addActionListener(this::displayHelpLabel);
 
         Box l1 = Box.createHorizontalBox();
         l1.add(pageTitle,BorderLayout.PAGE_START);
@@ -115,8 +118,20 @@ public class AddEmployee extends View {
 
     private void sendData(ActionEvent actionEvent) {
         this.controller.addEmployee(getName(), getSurname(), getAge(), getEntryDate(),getJob(), getCalculBase());
+        this.frame.Views.get(0).display();
+        this.frame.revalidate();
+        this.frame.pack();
+        this.frame.setVisible(true);
+        this.frame.setLocationRelativeTo(null);
     }
 
+    private void goBack(ActionEvent actionEvent){
+        this.frame.Views.get(0).display();
+        this.frame.revalidate();
+        this.frame.pack();
+        this.frame.setVisible(true);
+        this.frame.setLocationRelativeTo(null);
+    }
 
     //récupération de tout les champs
 
@@ -148,18 +163,33 @@ public class AddEmployee extends View {
         labelHelp.setText(label);
     }
 
-    public void addSubmitListener(ActionListener clickOnSendButton){
-        sendButton.addActionListener(clickOnSendButton);
-    }
-
-    public void addReturnListener(ActionListener clickOnReturnButton){
-        goBackButton.addActionListener(clickOnReturnButton);
-    }
-
     public void display(){
         frame.setTitle("Ajouter un employé");
         this.frame.setContentPane(this);
         frame.revalidate();
         frame.pack();
+    }
+
+    public void displayHelpLabel(ActionEvent e) {
+        switch (getJob()){
+            case "Vendeur":
+                setHelpLabel("Pour le vendeur, il faut renseigner le chiffre d'affaire du mois");
+                break;
+            case "Représentant":
+                setHelpLabel("Pour le Représentant, il faut renseigner le chiffre d'affaire du mois");
+                break;
+            case "Technicien":
+                setHelpLabel("Pour le Technicien, il faut renseigner le nombre d'unités produite");
+                break;
+            case "Technicien à Risques":
+                setHelpLabel("Pour le Technicien à Risque, il faut renseigner le nombre d'unités produite");
+                break;
+            case "Manutentionnaire":
+                setHelpLabel("Pour le Manutentionnaire, il faut renseigner le nombre d'heure travailées dans le mois");
+                break;
+            case "Manutentionnaire à Risques":
+                setHelpLabel("Pour le Manutentionnaire à Risque, il faut renseigner le nombre d'heure travailées dans le mois");
+                break;
+        }
     }
 }

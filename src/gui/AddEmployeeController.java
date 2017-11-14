@@ -14,25 +14,9 @@ public class AddEmployeeController {
     public AddEmployeeController(EmployeeModel employeeModel) {
         this.model = employeeModel;
         System.out.println(model.toString());
-        //this.view.addSubmitListener(new AddEmployeeListener());
-        //this.view.addReturnListener(new AddReturnListener());
-        //this.view.addSelectJobListener(new SelectJobListener());
-    }
-
-    private class AddReturnListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            view.frame.setContentPane(view.frame.Views.get(0));
-            view.frame.revalidate();
-            view.frame.pack();
-            view.frame.setVisible(true);
-            view.frame.setLocationRelativeTo(null);
-        }
     }
 
     public void addEmployee(String name, String surname, String age, String entryDate, String job, String calculBase) {
-
-            System.out.println("CLICK");
             try{
                 int ageInt = Integer.parseInt(age);
                 double calculBaseDouble = Double.parseDouble(age);
@@ -68,37 +52,6 @@ public class AddEmployeeController {
             }catch (Exception ex){
                 ex.printStackTrace();
             }
-            view.frame.setContentPane(view.frame.Views.get(0));
-            view.frame.revalidate();
-            view.frame.pack();
-            view.frame.setVisible(true);
-            view.frame.setLocationRelativeTo(null);
 
-    }
-
-    private class SelectJobListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            switch (view.getJob()){
-                case "Vendeur":
-                    view.setHelpLabel("Pour le vendeur, il faut renseigner le chiffre d'affaire du mois");
-                    break;
-                case "Représentant":
-                    view.setHelpLabel("Pour le Représentant, il faut renseigner le chiffre d'affaire du mois");
-                    break;
-                case "Technicien":
-                    view.setHelpLabel("Pour le Technicien, il faut renseigner le nombre d'unités produite");
-                    break;
-                case "Technicien à Risques":
-                    view.setHelpLabel("Pour le Technicien à Risque, il faut renseigner le nombre d'unités produite");
-                    break;
-                case "Manutentionnaire":
-                    view.setHelpLabel("Pour le Manutentionnaire, il faut renseigner le nombre d'heure travailées dans le mois");
-                    break;
-                case "Manutentionnaire à Risques":
-                    view.setHelpLabel("Pour le Manutentionnaire à Risque, il faut renseigner le nombre d'heure travailées dans le mois");
-                    break;
-            }
-        }
     }
 }
