@@ -23,8 +23,6 @@ public class Application {
 
         AddEmployee add1 = new AddEmployee(frame, new AddEmployeeController(personnel));
 
-
-
     }
 
 }

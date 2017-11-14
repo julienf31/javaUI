@@ -14,6 +14,8 @@ public class AddEmployee extends View {
     protected AddEmployeeController controller;
 
     public ViewManager frame;
+
+    //liste de job pour le JSelect
     String [] jobs = {
             "Vendeur",
             "Représentant",
@@ -51,13 +53,10 @@ public class AddEmployee extends View {
         super();
         this.controller = controller;
         this.frame = frame;
-        initView();
-        this.frame.pack();
-        this.frame.setVisible(true);
+        this.initView();
     }
 
     private void initView(){
-        frame.setTitle("Gestion des employés - Ajouter un employé");
         this.frame.addView(this);
 
         pageTitle.setFont(new Font("Helvetica", Font.BOLD, 22));
@@ -67,6 +66,7 @@ public class AddEmployee extends View {
         goBackButton.addActionListener(this::goBack);
         listJob.addActionListener(this::displayHelpLabel);
 
+        //utilisation du Layout BOX plus simple pour afficher le formulaire
         Box l1 = Box.createHorizontalBox();
         l1.add(pageTitle,BorderLayout.PAGE_START);
 
@@ -101,6 +101,8 @@ public class AddEmployee extends View {
         l9.add(goBackButton);
         l9.add(sendButton);
 
+
+        //ajout des box à une boite verticale (dans l'ordre d'affichage)
         Box box = Box.createVerticalBox();
         box.add(l1);
         box.add(l2);
@@ -112,27 +114,22 @@ public class AddEmployee extends View {
         box.add(l8);
         box.add(l9);
 
+        //affichage du layout
         this.add(box);
     }
 
+    //fonction d'envoi de data à la validation
     private void sendData(ActionEvent actionEvent) {
         this.controller.addEmployee(getName(), getSurname(), getAge(), getEntryDate(),getJob(), getCalculBase());
         this.emptyTextField(); // on vide les champs de texte
         this.frame.Views.get(1).display(); // go to list view
-        this.frame.revalidate();
-        this.frame.pack();
-        this.frame.setVisible(true);
-        this.frame.setLocationRelativeTo(null);
     }
 
     private void goBack(ActionEvent actionEvent){
         this.frame.Views.get(0).display();
-        this.frame.revalidate();
-        this.frame.pack();
-        this.frame.setVisible(true);
     }
 
-    //récupération de tout les champs
+    //fonction de récupération des champs
 
     public String getName(){
         return textName.getText();
@@ -151,23 +148,16 @@ public class AddEmployee extends View {
     }
 
     public String getJob(){
-        return listJob.getSelectedItem().toString(); // utiliser les objet pour apres
+        return listJob.getSelectedItem().toString();
     }
 
     public String getCalculBase(){
         return textCalcul.getText();
     }
 
+    //modification du help label
     public void setHelpLabel(String label){
         labelHelp.setText(label);
-    }
-
-    public void display(){
-        frame.setTitle("Ajouter un employé");
-        this.frame.setContentPane(this);
-        frame.revalidate();
-        frame.pack();
-        this.frame.setLocationRelativeTo(null);
     }
 
     public void displayHelpLabel(ActionEvent e) {
@@ -194,6 +184,7 @@ public class AddEmployee extends View {
         this.frame.pack();
     }
 
+    //remise à zéro des champs aprés la création de l'employé
     public void emptyTextField(){
         this.textSurname.setText("");
         this.textName.setText("");
@@ -201,5 +192,14 @@ public class AddEmployee extends View {
         this.textCalcul.setText("");
         this.textEntryDate.setText("");
         this.listJob.setSelectedIndex(0);
+    }
+
+    //fonction d'affichage de la vue
+    public void display(){
+        this.frame.setTitle("Ajouter un employé");
+        this.frame.setContentPane(this);
+        this.frame.revalidate();
+        this.frame.setLocationRelativeTo(null);
+        this.frame.pack();
     }
 }
