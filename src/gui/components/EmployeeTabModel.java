@@ -1,13 +1,16 @@
 package gui.components;
 
-import gui.domain.Employee;
 import gui.service.Personnel;
 
 import javax.swing.table.AbstractTableModel;
 
+//Sert de modèle pour la création du JTable
 public class EmployeeTabModel extends AbstractTableModel{
 
+    //Données du tableau -> Objet donc mise à jour auto
     private final Personnel personnel;
+
+    //Titre des colonnes
     private final String[] entetes = {"Nom", "Prénom", "Age", "Date d'entrée", "Unité de calcul", "Salaire"};
 
     public EmployeeTabModel(Personnel p) {
@@ -31,6 +34,7 @@ public class EmployeeTabModel extends AbstractTableModel{
         return entetes[columnIndex];
     }
 
+    //Sert à remplir le tableau
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex){

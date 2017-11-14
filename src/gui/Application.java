@@ -13,15 +13,23 @@ public class Application {
 
     public static void window() {
 
+        //Création du Modèle de données
         Personnel personnel= new Personnel();
 
+        //Création de la fenetre
         ViewManager frame = new ViewManager("App");
 
+        //Création de la vue principale
         Dashboard dash = new Dashboard(frame);
 
+        //Création de la vue liste d'employées
         ListEmployee liste = new ListEmployee(frame, personnel);
 
-        AddEmployee add1 = new AddEmployee(frame, new AddEmployeeController(personnel));
+        //Création du controleur lié à la vue d'ajout
+        AddEmployeeController addControler = new AddEmployeeController(personnel);
+
+        //Création de la vue d'ajout
+        AddEmployee add1 = new AddEmployee(frame, addControler);
 
     }
 
