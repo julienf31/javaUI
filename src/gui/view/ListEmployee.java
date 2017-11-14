@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 
 
 public class ListEmployee extends View{
-    ViewManager frame;
     Personnel personnel;
 
     //Composants
@@ -19,7 +18,7 @@ public class ListEmployee extends View{
     JScrollPane tabScrollPane;
 
     public ListEmployee(ViewManager frame, Personnel p) {
-        super();
+        super(frame);
 
         //Définition du layout
         this.setLayout(new BorderLayout());
@@ -78,7 +77,7 @@ public class ListEmployee extends View{
         this.frame.setContentPane(this);
         this.frame.revalidate();
         this.frame.setLocationRelativeTo(null);
-        this.frame.pack();
+        this.frame.setSize(600, 550);
 
 
     }

@@ -13,8 +13,6 @@ public class AddEmployee extends View {
 
     protected AddEmployeeController controller;
 
-    public ViewManager frame;
-
     //liste de job pour le JSelect
     String [] jobs = {
             "Vendeur",
@@ -50,7 +48,7 @@ public class AddEmployee extends View {
     JButton sendButton = new AddEmployeeSubmitButton();
 
     public AddEmployee(ViewManager frame, AddEmployeeController controller) {
-        super();
+        super(frame);
         this.controller = controller;
         this.frame = frame;
         this.initView();

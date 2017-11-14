@@ -15,7 +15,7 @@ public class AddEmployeeController {
             try{
                 //conversion en int et double des valeures nécessaires
                 int ageInt = Integer.parseInt(age);
-                double calculBaseDouble = Double.parseDouble(age);
+                double calculBaseDouble = Double.parseDouble(calculBase);
 
                 //création de l'employé en fonction de la selection
                 switch(job){

@@ -6,15 +6,13 @@ import java.awt.event.ActionEvent;
 
 public class Dashboard extends View{
 
-    ViewManager frame;
-
     JLabel title = new JLabel("Gestion des employés");
     JButton goToList = new JButton("Liste des employés");
     JButton goToAdd = new JButton("Ajouyer un employé");
     JLabel copyright = new JLabel("Copyright © Phalien Fourneau");
 
     public Dashboard(ViewManager frame) {
-        super();
+        super(frame);
         this.frame = frame;
         this.frame.addView(this);
         title.setFont(new Font("Helvetica",Font.BOLD,22));
