@@ -41,4 +41,8 @@ public abstract class Employee {
     }
 
     public abstract double getUnit();
+
+    public String getTruncSalaire(){
+        return String.format("%.2f", this.calculerSalaire());
+    }
 }

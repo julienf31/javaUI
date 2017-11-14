@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ViewManager extends JFrame {
 
-    public List<JPanel> Views = new ArrayList<>();
+    public List<View> Views = new ArrayList<>();
     private Personnel personnel;
 
     public ViewManager(String title) throws HeadlessException {
@@ -17,7 +17,7 @@ public class ViewManager extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void addView (JPanel view){
+    public void addView (View view){
         Views.add(view);
     }
 }

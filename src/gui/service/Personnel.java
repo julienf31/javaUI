@@ -32,6 +32,10 @@ public class Personnel {
         return total / employees.size();
     }
 
+    public String getTruncSalaireMoyen(){
+        return String.format("%.2f", this.salaireMoyen());
+    }
+
     public void addView(JPanel view){
         this.Views.add(view);
     }

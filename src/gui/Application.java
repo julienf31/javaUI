@@ -26,7 +26,7 @@ public class Application {
         p.ajouterEmploye(new Technicien("Yves", "Bosseur", 28, "1998", 1000));
         p.ajouterEmploye(new Manutentionnaire("Jeanne", "Stocketout", 32, "1998", 45));
         p.ajouterEmploye(new TechnARisque("Jean", "Flippe", 28, "2000", 1000));
-        p.ajouterEmploye(new ManutARisque("Al", "Abordage", 30, "2001", 45));
+        //p.ajouterEmploye(new ManutARisque("Al", "Abordage", 30, "2001", 45));
 
         ViewManager frame = new ViewManager("App");
 

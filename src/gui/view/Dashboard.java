@@ -1,10 +1,6 @@
 package gui.view;
 
-import gui.components.DashboardAddButton;
-import gui.components.DashboardListButton;
-
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,9 +8,8 @@ public class Dashboard extends JPanel{
 
     ViewManager frame;
 
-    JButton goToList = new DashboardListButton();
-    JButton goToAdd = new DashboardAddButton();
-    JLabel title = new JLabel("Gestion des employés");
+    JButton goToList = new JButton("Liste des employés");
+    JButton goToAdd = new JButton("Ajouyer un employé");
 
     public Dashboard(ViewManager frame) {
         super();
@@ -25,25 +20,25 @@ public class Dashboard extends JPanel{
         this.add(title);
         this.add(goToAdd);
         this.add(goToList);
-        goToList.addActionListener(this::listButtonPressed);
-        goToAdd.addActionListener(this::goToAdd);
-        frame.setContentPane(frame.Views.get(0));
+
+        goToList.addActionListener(this::doStuff);
+        this.display();
         frame.pack();
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
 
     }
 
-    private void goToAdd(ActionEvent actionEvent) {
-        frame.setContentPane(frame.Views.get(2));
-        frame.revalidate();
-        frame.pack();
+    private void doStuff(ActionEvent actionEvent) {
+        frame.Views.get(1).display();
     }
 
-    private void listButtonPressed(ActionEvent actionEvent) {
-        frame.setContentPane(frame.Views.get(1));
+    public void display(){
+        frame.setTitle("Gestionnaire d'employés");
+        this.frame.setContentPane(this);
         frame.revalidate();
         frame.pack();
+
     }
 
 
