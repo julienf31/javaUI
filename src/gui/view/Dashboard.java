@@ -6,10 +6,10 @@ import java.awt.event.ActionEvent;
 
 public class Dashboard extends View{
 
-    JLabel title = new JLabel("Gestion des employés");
-    JButton goToList = new JButton("Liste des employés");
-    JButton goToAdd = new JButton("Ajouyer un employé");
-    JLabel copyright = new JLabel("Copyright © Phalien Fourneau");
+    private JLabel title = new JLabel("Gestion des employés");
+    private JButton goToList = new JButton("Liste des employés");
+    private JButton goToAdd = new JButton("Ajouyer un employé");
+    private JLabel copyright = new JLabel("Copyright © Phalien Fourneau");
 
     public Dashboard(ViewManager frame) {
         super(frame);
@@ -57,6 +57,4 @@ public class Dashboard extends View{
         frame.pack();
         this.frame.setLocationRelativeTo(null);
     }
-
-
 }

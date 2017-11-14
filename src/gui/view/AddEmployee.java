@@ -11,10 +11,10 @@ import java.lang.*;
 
 public class AddEmployee extends View {
 
-    protected AddEmployeeController controller;
+    private AddEmployeeController controller;
 
     //liste de job pour le JSelect
-    String [] jobs = {
+    private String [] jobs = {
             "Vendeur",
             "Représentant",
             "Technicien",
@@ -23,29 +23,29 @@ public class AddEmployee extends View {
             "Manutentionnaire à Risques"
     };
 
-    JLabel pageTitle = new JLabel("Ajouter un employé");
+    private JLabel pageTitle = new JLabel("Ajouter un employé");
 
-    JLabel labelName = new JLabel("Nom : ");
-    JTextField textName = new JTextField(20);
+    private JLabel labelName = new JLabel("Nom : ");
+    private JTextField textName = new JTextField(20);
 
-    JLabel labelSurname = new JLabel("Prénom: ");
-    JTextField textSurname = new JTextField(20);
+    private JLabel labelSurname = new JLabel("Prénom: ");
+    private JTextField textSurname = new JTextField(20);
 
-    JLabel labelAge = new JLabel("Age: ");
-    JTextField textAge = new JTextField(6);
+    private JLabel labelAge = new JLabel("Age: ");
+    private JTextField textAge = new JTextField(6);
 
-    JLabel labelEntryDate = new JLabel("Date d'entrée: ");
-    JTextField textEntryDate = new JTextField(6);
+    private JLabel labelEntryDate = new JLabel("Date d'entrée: ");
+    private JTextField textEntryDate = new JTextField(6);
 
-    JLabel labelJob = new JLabel("Sélectionnez le poste : ");
-    JComboBox<String>  listJob = new JComboBox<>(jobs);
+    private JLabel labelJob = new JLabel("Sélectionnez le poste : ");
+    private JComboBox<String>  listJob = new JComboBox<>(jobs);
 
-    JLabel labelCalcul = new JLabel("Base de calcul");
-    JTextField textCalcul = new JTextField(9);
-    JLabel labelHelp = new JLabel();
+    private JLabel labelCalcul = new JLabel("Base de calcul");
+    private JTextField textCalcul = new JTextField(9);
+    private JLabel labelHelp = new JLabel();
 
-    JButton goBackButton = new ReturnButton();
-    JButton sendButton = new AddEmployeeSubmitButton();
+    private JButton goBackButton = new ReturnButton();
+    private JButton sendButton = new AddEmployeeSubmitButton();
 
     public AddEmployee(ViewManager frame, AddEmployeeController controller) {
         super(frame);
@@ -118,7 +118,7 @@ public class AddEmployee extends View {
 
     //fonction d'envoi de data à la validation
     private void sendData(ActionEvent actionEvent) {
-        this.controller.addEmployee(getName(), getSurname(), getAge(), getEntryDate(),getJob(), getCalculBase());
+        this.controller.addEmployee(getEmployeeName(), getEmployeeSurname(), getEmployeeAge(), getEntryDate(),getEmployeeJob(), getEmployeeCalculBase());
         this.emptyTextField(); // on vide les champs de texte
         this.frame.Views.get(1).display(); // go to list view
     }
@@ -129,37 +129,37 @@ public class AddEmployee extends View {
 
     //fonction de récupération des champs
 
-    public String getName(){
+    private String getEmployeeName(){
         return textName.getText();
     }
 
-    public String getSurname(){
+    private String getEmployeeSurname(){
         return textSurname.getText();
     }
 
-    public String getEntryDate(){
+    private String getEntryDate(){
         return textEntryDate.getText();
     }
 
-    public String getAge(){
+    private String getEmployeeAge(){
         return textAge.getText();
     }
 
-    public String getJob(){
+    private String getEmployeeJob(){
         return listJob.getSelectedItem().toString();
     }
 
-    public String getCalculBase(){
+    private String getEmployeeCalculBase(){
         return textCalcul.getText();
     }
 
     //modification du help label
-    public void setHelpLabel(String label){
+    private void setHelpLabel(String label){
         labelHelp.setText(label);
     }
 
-    public void displayHelpLabel(ActionEvent e) {
-        switch (getJob()){
+    private void displayHelpLabel(ActionEvent e) {
+        switch (getEmployeeJob()){
             case "Vendeur":
                 setHelpLabel("Pour le vendeur, il faut renseigner le chiffre d'affaire du mois");
                 break;
@@ -183,7 +183,7 @@ public class AddEmployee extends View {
     }
 
     //remise à zéro des champs aprés la création de l'employé
-    public void emptyTextField(){
+    private void emptyTextField(){
         this.textSurname.setText("");
         this.textName.setText("");
         this.textAge.setText("");

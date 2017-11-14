@@ -9,13 +9,13 @@ import java.awt.event.ActionEvent;
 
 
 public class ListEmployee extends View{
-    Personnel personnel;
+    private Personnel personnel;
 
     //Composants
-    JPanel buttons;
-    JButton goBack;
-    JLabel salaryLabel;
-    JScrollPane tabScrollPane;
+    private JPanel buttons;
+    private JButton goBack;
+    private JLabel salaryLabel;
+    private JScrollPane tabScrollPane;
 
     public ListEmployee(ViewManager frame, Personnel p) {
         super(frame);
@@ -63,7 +63,7 @@ public class ListEmployee extends View{
 
 
     //Actualisation du label
-    public void updateSalary(){
+    private  void updateSalary(){
         this.salaryLabel.setText("Salaire moyen : " + personnel.getTruncSalaireMoyen() + " €");
     }
 

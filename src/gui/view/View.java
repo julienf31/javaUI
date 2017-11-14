@@ -2,7 +2,7 @@ package gui.view;
 
 import javax.swing.*;
 public abstract class View extends JPanel{
-    ViewManager frame;
+    protected ViewManager frame;
 
     public View(ViewManager frame) {
         super();
