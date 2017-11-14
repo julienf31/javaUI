@@ -1,18 +1,15 @@
 package gui.controller;
 
 import gui.domain.*;
-import gui.models.EmployeeModel;
+import gui.service.Personnel;
 import gui.view.AddEmployee;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddEmployeeController {
     private AddEmployee view;
-    private EmployeeModel model;
+    private Personnel model;
 
-    public AddEmployeeController(EmployeeModel employeeModel) {
-        this.model = employeeModel;
+    public AddEmployeeController(Personnel model) {
+        this.model = model;
         System.out.println(model.toString());
     }
 

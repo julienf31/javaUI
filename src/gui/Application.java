@@ -1,8 +1,8 @@
 package gui;
 
 import gui.controller.AddEmployeeController;
+import gui.service.Personnel;
 import gui.view.*;
-import gui.models.EmployeeModel;
 
 import static javax.swing.SwingUtilities.invokeLater;
 
@@ -13,17 +13,16 @@ public class Application {
 
     public static void window() {
 
-        EmployeeModel employeeModel = new EmployeeModel();
+        Personnel personnel= new Personnel();
 
         ViewManager frame = new ViewManager("App");
 
         Dashboard dash = new Dashboard(frame);
 
-        ListEmployee liste = new ListEmployee(frame, employeeModel.getPersonnel());
+        ListEmployee liste = new ListEmployee(frame, personnel);
 
-        AddEmployee add1 = new AddEmployee(frame, new AddEmployeeController(employeeModel));
+        AddEmployee add1 = new AddEmployee(frame, new AddEmployeeController(personnel));
 
-        //AddEmployeeController add = new AddEmployeeController(new AddEmployee(frame), employeeModel);
 
 
     }

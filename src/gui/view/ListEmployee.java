@@ -26,28 +26,24 @@ public class ListEmployee extends View{
         this.setLayout(new BorderLayout());
 
         this.personnel = p;
-        //BorderLayout layout = new BorderLayout();
-        //this.setLayout(layout);
         this.frame = frame;
         this.frame.addView(this);
-        //this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-        
-        //scrollPane.setPreferredSize(new Dimension(200, 200));
-        //this.add(scrollPane);
 
         EmployeeJTable PersonnelTab = new EmployeeJTable(new EmployeeTabModel(p));
-
         this.add(new JScrollPane(PersonnelTab), BorderLayout.NORTH);
 
         JPanel buttons = new JPanel();
         buttons.add(goBack);
         goBack.addActionListener(this::goBack);
 
+        this.add(buttons, BorderLayout.SOUTH);
+
         this.salaryLabel = new JLabel ("",JLabel.CENTER);
-        updateSalary();
         this.add(salaryLabel, BorderLayout.CENTER);
 
-        this.add(buttons, BorderLayout.SOUTH);
+        updateSalary();
+
+
 
         this.frame.setVisible(true);
         this.frame.pack();
